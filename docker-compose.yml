@@ -68,6 +68,18 @@ services:
     depends_on:
       - elasticsearch
 
+  redis:
+    image: daocloud.io/library/redis:5.0
+    expose:
+      - "6379"
+    volumes:
+      - ./redis/redis.conf:/etc/redis.conf:ro
+    command: "/etc/redis.conf"
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+
 networks:
   elk:
     driver: bridge

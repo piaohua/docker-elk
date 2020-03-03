@@ -350,6 +350,8 @@ number inside the `.env` file, and rebuild the stack with:
 ```console
 $ docker-compose build
 $ docker-compose up
+
+$ docker exec -i docker-elk_redis_1 redis-cli -c lpush logstash '{"host":"localhost","type":"test","message":"hello Lapenna"}'
 ```
 
 > :warning: Always pay attention to the [upgrade instructions][upgrade] for each individual component before
